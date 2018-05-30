@@ -309,6 +309,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_test_mission.test mission:=vtol_new_1 vehicle:=standard_vtol'
@@ -317,13 +318,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
@@ -340,6 +341,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_test_mission.test mission:=vtol_new_1 vehicle:=tailsitter'
@@ -348,13 +350,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
@@ -371,6 +373,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_test_mission.test mission:=vtol_new_1 vehicle:=tiltrotor'
@@ -379,13 +382,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
@@ -402,6 +405,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_test_mission.test mission:=vtol_new_2 vehicle:=standard_vtol'
@@ -410,13 +414,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
@@ -433,6 +437,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_test_mission.test mission:=vtol_old_1 vehicle:=standard_vtol'
@@ -441,13 +446,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
@@ -464,6 +469,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_test_mission.test mission:=vtol_old_2 vehicle:=standard_vtol'
@@ -472,13 +478,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
@@ -495,6 +501,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_test_mission.test mission:=multirotor_box vehicle:=iris'
@@ -503,13 +510,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
@@ -526,6 +533,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_tests_offboard_attctl.test'
@@ -534,13 +542,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
@@ -554,6 +562,7 @@ pipeline {
           }
           steps {
             sh 'export'
+            sh 'ln -sf ${ROS_HOME} ${WORKSPACE}/artifacts'
             unstash 'px4_sitl_package'
             sh 'tar -xjpf build/posix_sitl_default/px4-posix_sitl_default*.bz2'
             sh 'px4-posix_sitl_default*/px4/test/rostest_px4_run.sh mavros_posix_tests_offboard_posctl.test'
@@ -562,13 +571,13 @@ pipeline {
           post {
             always {
               sh 'px4-posix_sitl_default*/px4/Tools/upload_log.py -q --description "${JOB_NAME}: ${STAGE_NAME}" --feedback "${JOB_NAME} ${CHANGE_TITLE} ${CHANGE_URL}" --source CI /tmp/ros/rootfs/fs/microsd/log/*/*.ulg'
-              archiveArtifacts '/tmp/ros/**/*.pdf'
-              archiveArtifacts '/tmp/ros/**/*.csv'
+              archiveArtifacts 'artifacts/ros/**/*.pdf'
+              archiveArtifacts 'artifacts/ros/**/*.csv'
             }
             failure {
-              archiveArtifacts '/tmp/ros/**/*.ulg'
-              archiveArtifacts '/tmp/ros/**/rosunit-*.xml'
-              archiveArtifacts '/tmp/ros/**/rostest-*.log'
+              archiveArtifacts 'artifacts/ros/**/*.ulg'
+              archiveArtifacts 'artifacts/ros/**/rosunit-*.xml'
+              archiveArtifacts 'artifacts/ros/**/rostest-*.log'
             }
           }
         }
